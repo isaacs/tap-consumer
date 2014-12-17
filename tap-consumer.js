@@ -7,6 +7,7 @@ module.exports = TapConsumer
 var yamlish = require("yamlish")
   , Results = require("tap-results")
   , inherits = require("inherits")
+  , Stream = require("stream").Stream
 
 TapConsumer.decode = TapConsumer.parse = function (str) {
   var tc = new TapConsumer
@@ -19,13 +20,13 @@ TapConsumer.decode = TapConsumer.parse = function (str) {
   return tc.results
 }
 
-inherits(TapConsumer, require("stream").Stream)
+inherits(TapConsumer, Stream)
 function TapConsumer () {
   if (!(this instanceof TapConsumer)) {
     return new TapConsumer
   }
 
-  TapConsumer.super.call(this)
+  Stream.call(this)
   this.results = new Results
   this.readable = this.writable = true
 
