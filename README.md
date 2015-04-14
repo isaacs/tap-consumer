@@ -1,3 +1,3 @@
-A module for consuming tap output.
+Deprecated.
 
-More coming here.
+Please use [node-tap](https://github.com/isaacs/node-tap) instead.
